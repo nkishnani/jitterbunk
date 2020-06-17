@@ -18,9 +18,9 @@ class Bunk(models.Model):
     for the object, denoting who the Bunk is coming from,
     who it's going to, and what time it was sent.
     '''
-    from_user = models.CharField(max_length=200)
+    from_user = models.OneToOneField(User, on_delete=models.CASCADE)
     # TODO: make these OneToOne Users?
-    to_user   = models.CharField(max_length=200)
+    to_user   = models.OneToOneField(User, on_delete=models.CASCADE)
     time      = models.DateTimeField('date published')
 
 
