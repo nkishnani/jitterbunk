@@ -1,5 +1,5 @@
 '''
-File: jitterbunk_main/models.py
+File: jitterbunk/models.py
 Author: Neel Kishnani
 
 This file defines the database models for the
@@ -31,10 +31,4 @@ class Bunk(models.Model):
     from_user = models.ForeignKey(UserProfile, related_name='bunks_sent')
     to_user   = models.ForeignKey(UserProfile, related_name='bunks_received')
     time      = models.DateTimeField('date published')
-
-
-    # /user/neel/
-    # user = User.objects.get(username=path)
-    # up = user.userprofile --> makes a query
-    # up.bunks_received --> query_set
 

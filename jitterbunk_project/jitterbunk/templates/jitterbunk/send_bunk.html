@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Send a Bunk</h2>
+
+<form action = "{% url 'jitterbunk:send_bunk' %}" method="post">
+{% csrf_token %}
+  <label for="from_user">From:</label><br>
+  <input type="text" id="from_user" name="from_user"><br>
+  <label for="to_user">To:</label><br>
+  <input type="text" id="to_user" name="to_user"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<p>If you click the "Submit" button, the form data will be uploaded to /jitterbunk/</p>
+
+</body>
+</html>

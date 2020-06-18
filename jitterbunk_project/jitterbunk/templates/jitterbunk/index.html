@@ -1,0 +1,14 @@
+<h3>Bunks</h3>
+
+{% if bunks %}
+<ul>
+    {% for bunk in bunks %}
+    <li>
+        {{bunk.from_user.user.username}} sent a bunk to {{bunk.to_user.user.username}} at {{bunk.time}}
+    </li>
+    {% endfor %}
+</ul>
+
+{% else %}
+<p>Waiting for bunks...</p>
+{% endif %}
