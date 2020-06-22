@@ -14,6 +14,12 @@ from .models import UserProfile, Bunk
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.db.models import Q
+from django.views.generic import ListView
+
+class UserListView(ListView):
+    model = User
+    template_name = 'jitterbunk/user_list.html'
+
 
 def index(request):
     '''
