@@ -4,7 +4,7 @@
 <ul>
     {% for bunk in individual_bunks %}
     <li>
-        {{bunk.from_user.user.username}} sent a bunk to {{bunk.to_user.user.username}} at {{bunk.time}}
+        {{bunk.from_user.username}} sent a bunk to {{bunk.to_user.username}} at {{bunk.time}}
     </li>
     {% endfor %}
 </ul>

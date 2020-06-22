@@ -17,9 +17,13 @@ from django.db.models import Q
 from django.views.generic import ListView
 
 class UserListView(ListView):
+    '''
+    This view serves mostly as a test of the
+    ListView functionality. We list all users
+    in the db.
+    '''
     model = User
     template_name = 'jitterbunk/user_list.html'
-
 
 def index(request):
     '''
@@ -45,10 +49,7 @@ def send_bunk(request):
             from_user = User.objects.get(username=from_username)
             to_user   = User.objects.get(username=to_username)
 
-            from_up = UserProfile.objects.get(user=from_user)
-            to_up   = UserProfile.objects.get(user=to_user)
-
-            bunk = Bunk(from_user=from_up, to_user=to_up, time=timezone.now())
+            bunk = Bunk(from_user=from_user, to_user=to_user, time=timezone.now())
             bunk.save()
             return HttpResponseRedirect('/jitterbunk/')
 
@@ -66,8 +67,7 @@ def view_individual_bunks(request, username):
     to or sent from that user.
     '''
     u  = User.objects.get(username=username)
-    up = UserProfile.objects.get(user=u)
-    individual_bunks = Bunk.objects.filter(Q(from_user=up) | Q(to_user=up))
+    individual_bunks = Bunk.objects.filter(Q(from_user=u) | Q(to_user=u))
     context = {'individual_bunks':individual_bunks, 'username':username}
     return render(request, 'jitterbunk/individual.html', context)
 

@@ -28,7 +28,7 @@ class Bunk(models.Model):
     for the object, denoting who the Bunk is coming from,
     who it's going to, and what time it was sent.
     '''
-    from_user = models.ForeignKey(UserProfile, related_name='bunks_sent')
-    to_user   = models.ForeignKey(UserProfile, related_name='bunks_received')
+    from_user = models.ForeignKey(User, related_name='bunks_sent')
+    to_user   = models.ForeignKey(User, related_name='bunks_received')
     time      = models.DateTimeField('date published')
 
